@@ -301,7 +301,7 @@ st.markdown(
 | **Rejection hat eine kleine Ausfallrate** | Schichtfolgen: Faktor 1,178 mehr Versuche je Schritt; bei n = 60 etwa 15.000, bei n = 100 rund 10 Millionen. Die App bricht bei {dot(C.MAX_STEPS)} Rechenschritten ab und sagt das. | Experiment 3 |
 | **Boltzmann braucht eine Singularität** | Nur für Gleichungen wie die der Spielwiese; bei einem Pol (linearer Fall) läuft die Größe ins Unendliche, bei Perioden gibt es mehrere Singularitäten. | Stück 9 |
 | **Die Größe muss stimmen** | Der Boltzmann-Sampler liefert eine zufällige Größe; wer genau n braucht, zahlt etwa 2√π·n^(3/2) Versuche (Catalan). | Experiment 4 |
-| **Stichproben beweisen nichts** | Ein Chi-Quadrat liegt bei einem exakten Sampler in etwa 5 % der Fälle außerhalb von ±2; der Beweis der Gleichverteilung ist der Bruch je Objekt, nicht die Stichprobe. | – |
+| **Stichproben beweisen nichts** | Ein Chi-Quadrat liegt bei einem exakten Sampler in etwa 4 bis 5 % der Fälle außerhalb von ±2; der Beweis der Gleichverteilung ist der Bruch je Objekt, nicht die Stichprobe. | – |
 | **Die Größe ist begrenzt** | Die Familien bis n = {C.N_MAX} (Mengenpartitionen bis n = {C.N_CAP['Mengenpartitionen']}), höchstens {dot(C.DRAWS_MAX)} Ziehungen; Objekte werden nur bis {dot(C.ENUM_MAX)} aufgezählt. | – |
 """
 )

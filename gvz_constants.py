@@ -71,7 +71,7 @@ PRESET_HELP = {
     "Naiver Gang ist verzerrt, n = 8": "Wer den nächsten Buchstaben gleichverteilt unter den erlaubten wählt, zieht nicht gleichverteilt: Abstand zur Gleichverteilung 0,336, das häufigste Wort 9,9-mal so oft wie gerecht.",
     "Rejection wird teuer: n = 40": "Würfeln und Wegwerfen: bei n = 40 sind im Mittel 577 Versuche je Schichtfolge nötig, bei n = 100 schon rund 10 Millionen (Faktor 1,178 je Schritt).",
     "Genau k Nächte: k = 7, n = 10": "Nur 4 der 13.926 Schichtfolgen haben sieben Nächte; per Rejection aus der Gesamtmenge wären im Mittel 3.481,5 Versuche nötig, die Tabelle zieht gezielt.",
-    "Catalan-Bäume per Boltzmann, n = 100": "Zufallsbäume ohne Tabelle bei x = ρ = 1/4: erwartet etwa 170 Versuche je Baum im Fenster 90 bis 110, mehr als das Zehnfache der 200 Rechenschritte der Tabelle.",
+    "Catalan-Bäume per Boltzmann, n = 100": "Zufallsbäume ohne Tabelle bei x = ρ = 1/4: erwartet etwa 170 Versuche je Treffer im Fenster 90 bis 110, zusammen rund 3.400 Rechenschritte, das 17-Fache der 200 Rechenschritte der Tabelle.",
     "Dyck-Wörter exakt, n = 6": "132 Dyck-Wörter der Länge 12 (Catalan C₆); mit 5.000 Ziehungen wird jedes im Mittel etwa 38-mal gezogen.",
     "Motzkin-Wörter, n = 8": "323 Wege mit Schritten hoch, flach, runter; die Tabelle der Fortsetzungen zieht gleichverteilt.",
     "Mengenpartitionen, n = 7": "877 Mengenpartitionen von sieben Elementen (Bell B₇); der Stirling-Sampler zieht gleichverteilt, der naive Aufbau nicht.",

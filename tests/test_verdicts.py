@@ -58,7 +58,7 @@ def test_answer_rows_of_the_standard_case():
 def test_uniformity_verdict_exact():
     kind, text = ev.verdict_uniformity(ev.uniformity_rows())
     assert kind == "success"
-    assert text == ("8 Kombinationen aus Familie und exaktem Verfahren ohne Verzerrung: z-Werte zwischen −1,53 und 1,14 (gleichverteilt: etwa −3 bis 3); "
+    assert text == ("8 Kombinationen aus Familie und exaktem Verfahren ohne erkennbare Verzerrung in der Stichprobe: z-Werte zwischen −1,53 und 1,14 (gleichverteilt: etwa −3 bis 3); "
                     "der naive Gang liegt bei z = 447, 1056, 428, 738 und im Abstand 0,18 bis 0,31 zur Gleichverteilung.")
 
 
@@ -80,7 +80,7 @@ def test_boltzmann_verdict_exact():
     assert kind == "success"
     assert text == ("Die Größe der Boltzmann-Bäume folgt c_n·ρⁿ/τ (z = −0,41, 1,18). Ein Fenster ±10 % um n kostet 1/P(Fenster) Versuche: bei n = 1000 erwartet 555, gemessen 558 "
                     "(größte Abweichung über alle Größen 7 %; bei 60 Treffern ist ein Standardfehler von etwa 13 % Zufall), 40.446 Rechenschritte je Treffer gegen 2000 beim Rekursions-Sampler, aber ohne Tabelle. "
-                    "Am besten ist x = ρ (t = 1,000): kleiner gewählte x machen das Fenster seltener, und der Mittelwert der Größe ist bei x = ρ unendlich.")
+                    "Unter den gerechneten x ist x = ρ am besten (t = 1,000; ein x unmittelbar darunter ist praktisch gleich gut): weiter darunter gewählte x machen das Fenster seltener, und der Mittelwert der Größe ist bei x = ρ unendlich.")
 
 
 def test_condition_verdict_exact():
@@ -88,7 +88,7 @@ def test_condition_verdict_exact():
     assert kind == "success"
     assert text == ("Mit der Bedingung „genau k Nächte“ zieht die Tabelle gezielt: bei n = 10 haben nur 4 von 13.926 Schichtfolgen 7 Nächte, Rejection aus der Gesamtmenge bräuchte 3.482 Versuche; "
                     "bei n = 400 mit k = 118 (Mittel plus vier Standardabweichungen) 47.890. Im Netz 7×7 gibt es 10 optimale von 924 Wegen (Semiring und Aufzählen stimmen überein); "
-                    "der Sampler nach Zahl der optimalen Fortsetzungen ist gleichverteilt (z = −0,75), der naive Gang unter den optimalen Kanten nicht (Abstand 0,150).")
+                    "der Sampler nach Zahl der optimalen Fortsetzungen ist gleichverteilt (nach dem Satz der Semiring-Zählung; z = −0,75 in der Stichprobe), der naive Gang unter den optimalen Kanten bei dieser Instanz nicht (Abstand 0,150).")
 
 
 def test_play_verdicts_exact():

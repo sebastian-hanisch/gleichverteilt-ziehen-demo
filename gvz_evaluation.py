@@ -331,7 +331,7 @@ def verdict_uniformity(rows: list[dict]):
     naive = [r for r in rows if r["Verfahren"] == "Naiver Gang"]
     ok = all(r["z"] is not None and abs(r["z"]) <= 4 for r in exact)
     zs = [r["z"] for r in exact]
-    text = (f"{len(exact)} Kombinationen aus Familie und exaktem Verfahren ohne Verzerrung: z-Werte zwischen {de(min(zs), 2)} und {de(max(zs), 2)} (gleichverteilt: etwa −3 bis 3); "
+    text = (f"{len(exact)} Kombinationen aus Familie und exaktem Verfahren ohne erkennbare Verzerrung in der Stichprobe: z-Werte zwischen {de(min(zs), 2)} und {de(max(zs), 2)} (gleichverteilt: etwa −3 bis 3); "
             f"der naive Gang liegt bei z = " + ", ".join(de(r["z"], 0) for r in naive) + f" und im Abstand {de(min(r['TV'] for r in naive), 2)} bis {de(max(r['TV'] for r in naive), 2)} zur Gleichverteilung.")
     return ("success" if ok else "warning"), text
 
@@ -486,8 +486,8 @@ def verdict_boltzmann(dist: list[dict], windows: list[dict], xs: list[dict]):
     best = min(xs, key=lambda r: r["Versuche"])
     kind = "success" if all(abs(z) <= 4 for z in zs) else "warning"
     return kind, (f"Die Größe der Boltzmann-Bäume folgt c_n·ρⁿ/τ (z = {', '.join(de(z, 2) for z in zs)}). Ein Fenster ±10 % um n kostet 1/P(Fenster) Versuche: bei n = {last['n0']} erwartet {count_text(last['Versuche erwartet'])}, gemessen {count_text(last['Versuche gemessen'])} "
-                  f"(größte Abweichung über alle Größen {percent(worst, 0)}; bei {last['Treffer']} Treffern ist ein Standardfehler von etwa {percent(1 / math.sqrt(last['Treffer']), 0)} Zufall), {count_text(last['Schritte je Treffer'])} Rechenschritte je Treffer gegen {last['Rekursions-Sampler']} beim Rekursions-Sampler, aber ohne Tabelle. Am besten ist x = ρ (t = {de(best['t'], 3)}): "
-                  "kleiner gewählte x machen das Fenster seltener, und der Mittelwert der Größe ist bei x = ρ unendlich.")
+                  f"(größte Abweichung über alle Größen {percent(worst, 0)}; bei {last['Treffer']} Treffern ist ein Standardfehler von etwa {percent(1 / math.sqrt(last['Treffer']), 0)} Zufall), {count_text(last['Schritte je Treffer'])} Rechenschritte je Treffer gegen {last['Rekursions-Sampler']} beim Rekursions-Sampler, aber ohne Tabelle. Unter den gerechneten x ist x = ρ am besten (t = {de(best['t'], 3)}; ein x unmittelbar darunter ist praktisch gleich gut): "
+                  "weiter darunter gewählte x machen das Fenster seltener, und der Mittelwert der Größe ist bei x = ρ unendlich.")
 
 
 # ----------------------------------------------------------------------------- Experiment 5: Bedingung und zufällige optimale Lösung
@@ -556,7 +556,7 @@ def verdict_condition(cond: dict, grid: dict):
     ok = all(abs(z) <= 4 for z in zs) and (grid["z"] is None or abs(grid["z"]) <= 4)
     return ("success" if ok else "warning"), (f"Mit der Bedingung „genau k Nächte“ zieht die Tabelle gezielt: bei n = 10 haben nur {rows[kmax]['Objekte']} von {big_text(cond['total'])} Schichtfolgen {kmax} Nächte, Rejection aus der Gesamtmenge bräuchte {count_text(rows[kmax]['Rejection (Versuche)'])} Versuche; "
                                                 f"bei n = {far['n']} mit k = {far['k']} (Mittel plus vier Standardabweichungen) {count_text(far['Versuche'])}. Im Netz {grid['grid']} gibt es {grid['optimal']} optimale von {big_text(grid['paths'])} Wegen "
-                                                f"(Semiring und Aufzählen stimmen überein); der Sampler nach Zahl der optimalen Fortsetzungen ist gleichverteilt (z = {de(grid['z'], 2) if grid['z'] is not None else '–'}), der naive Gang unter den optimalen Kanten nicht (Abstand {de(grid['tv'], 3)}).")
+                                                f"(Semiring und Aufzählen stimmen überein); der Sampler nach Zahl der optimalen Fortsetzungen ist gleichverteilt (nach dem Satz der Semiring-Zählung; z = {de(grid['z'], 2) if grid['z'] is not None else '–'} in der Stichprobe), der naive Gang unter den optimalen Kanten bei dieser Instanz nicht (Abstand {de(grid['tv'], 3)}).")
 
 
 # ----------------------------------------------------------------------------- Spielwiese: eigene Gleichung
