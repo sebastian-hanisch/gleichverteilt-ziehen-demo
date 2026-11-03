@@ -1,7 +1,6 @@
 # Gleichverteilt ziehen – zählen, dann entrollen – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-gleichverteilt-ziehen-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-gleichverteilt-ziehen-demo.streamlit.app/)**
 
 Stück 10 von 16 der Reihe **„Abzählen und erzeugende Funktionen“** in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“ (die Linie wird erst vollständig veröffentlicht). Vorgänger sind `aufzaehlen-rekursion-demo` (Stück 1), `rationale-ef-demo` (Stück 2), `symbolische-methode-demo` (Stück 3), `semiring-rekursion-demo` (Stück 4), `multimengen-partitionen-demo` (Stück 5), `beschriftete-strukturen-demo` (Stück 6), `siebformel-demo` (Stück 7), `zaehlen-nach-parameter-demo` (Stück 8) und `asymptotik-demo` (Stück 9); sie haben **gezählt**. Diese Demo **zieht**: ein Objekt gleichverteilt unter allen, ohne alle zu kennen. Wer die **Fortsetzungszahlen** hat, wählt den nächsten Schritt mit der Wahrscheinlichkeit „Fortsetzungen dahinter durch Fortsetzungen insgesamt“; dann hat **jedes Objekt genau die Wahrscheinlichkeit 1/Gesamtzahl** (**Rekursions-Sampler**). Daneben stehen **Rejection** (würfeln und wegwerfen), der **naive Gang** (nächsten Schritt gleichverteilt unter den erlaubten: verzerrt) und der **Boltzmann-Sampler** (Bäume ohne Tabelle bei der Singularität ρ aus Stück 9, mit Größenfenster).
 
@@ -121,4 +120,4 @@ Gebaut mit Streamlit, Plotly und fpdf2.
 
 ---
 
-Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zu den Demos: [Interaktive Demos](https://sebastianhanisch.net/demos.html).
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Abzählen: von der Rekursion zur Verfahrenswahl](https://sebastianhanisch.net/konzepte-abzaehlen.html).

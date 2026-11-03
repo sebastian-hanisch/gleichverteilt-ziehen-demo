@@ -120,4 +120,4 @@ def test_preset_help_claims():
 
 def test_readme_states_the_test_count_and_ends_with_the_footer():
     assert "Stück 10 von 16" in README and "Gleichverteilt ziehen" in README and "TESTCOUNT" not in README
-    assert README.rstrip().endswith("[Interaktive Demos](https://sebastianhanisch.net/demos.html).")
+    assert README.rstrip().endswith("[Abzählen: von der Rekursion zur Verfahrenswahl](https://sebastianhanisch.net/konzepte-abzaehlen.html).")
