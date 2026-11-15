@@ -387,7 +387,7 @@ def rejection_rows() -> dict:
         dy = Fraction(4 ** n, A.catalan(n))
         mo = Fraction(3 ** n, A.motzkin_number(n))
         de_ = A.derangement_expected_tries(n)
-        rows.append({"n": n, "Schichtfolgen": float(sh), "Dyck-Wörter": float(dy), "Motzkin-Wörter": float(mo), "Derangements": float(de_), "Dyck / (√π·n^1,5)": float(dy) / (math.sqrt(math.pi) * n ** 1.5)})
+        rows.append({"n": n, "Schichtfolgen": float(sh), "Dyck-Wörter": float(dy), "Motzkin-Wörter": float(mo), "Fixpunktfreie Permutationen": float(de_), "Dyck / (√π·n^1,5)": float(dy) / (math.sqrt(math.pi) * n ** 1.5)})
     top = C.EXP_REJECT_NS[-1]
     comp = A.shift_completions(top + 1)
     growth = float(Fraction(3 * comp[top][0], comp[top + 1][0]))
@@ -406,7 +406,7 @@ def rejection_rows() -> dict:
             if A.derangement_valid(A.derangement_propose(n, rng)):
                 break
         tries.append(t)
-    measured.append({"Familie": "Derangements", "n": n, "gemessen": sum(tries) / len(tries), "erwartet": float(A.derangement_expected_tries(n)), "Ziehungen": len(tries)})
+    measured.append({"Familie": "Fixpunktfreie Permutationen", "n": n, "gemessen": sum(tries) / len(tries), "erwartet": float(A.derangement_expected_tries(n)), "Ziehungen": len(tries)})
     return {"rows": rows, "growth": growth, "measured": measured}
 
 
@@ -414,7 +414,7 @@ def verdict_rejection(res: dict):
     rows = {r["n"]: r for r in res["rows"]}
     n1, n2 = 30, 100
     return "warning", (f"Rejection kostet je nach Familie ganz Verschiedenes: Schichtfolgen {count_text(rows[n1]['Schichtfolgen'])} Versuche bei n = {n1} und {count_text(rows[n2]['Schichtfolgen'])} bei n = {n2} (Faktor {de(res['growth'], 3)} je Schritt, exponentiell), "
-                       f"Dyck-Wörter {count_text(rows[n1]['Dyck-Wörter'])} und {count_text(rows[n2]['Dyck-Wörter'])} (etwa √π·n^(3/2), polynomiell), Derangements immer etwa e = {de(rows[n2]['Derangements'], 3)}. "
+                       f"Dyck-Wörter {count_text(rows[n1]['Dyck-Wörter'])} und {count_text(rows[n2]['Dyck-Wörter'])} (etwa √π·n^(3/2), polynomiell), fixpunktfreie Permutationen immer etwa e = {de(rows[n2]['Fixpunktfreie Permutationen'], 3)}. "
                        "Ob Rejection taugt, hängt von der Wachstumsrate der Objekte gegen die der Vorschläge ab (Stück 9).")
 
 

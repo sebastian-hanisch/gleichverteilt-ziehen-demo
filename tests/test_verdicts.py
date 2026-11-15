@@ -72,7 +72,7 @@ def test_rejection_verdict_exact():
     kind, text = ev.verdict_rejection(ev.rejection_rows())
     assert kind == "warning"
     assert text == ("Rejection kostet je nach Familie ganz Verschiedenes: Schichtfolgen 112 Versuche bei n = 30 und 1,07·10⁷ bei n = 100 (Faktor 1,178 je Schritt, exponentiell), "
-                    "Dyck-Wörter 302 und 1.792 (etwa √π·n^(3/2), polynomiell), Derangements immer etwa e = 2,718. Ob Rejection taugt, hängt von der Wachstumsrate der Objekte gegen die der Vorschläge ab (Stück 9).")
+                    "Dyck-Wörter 302 und 1.792 (etwa √π·n^(3/2), polynomiell), fixpunktfreie Permutationen immer etwa e = 2,718. Ob Rejection taugt, hängt von der Wachstumsrate der Objekte gegen die der Vorschläge ab (Stück 9).")
 
 
 def test_boltzmann_verdict_exact():

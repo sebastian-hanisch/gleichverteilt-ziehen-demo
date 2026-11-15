@@ -12,7 +12,7 @@ def lock_axes(fig):
 
 
 def _base(fig, height=340):
-    fig.update_layout(height=height, margin=dict(l=10, r=10, t=50, b=10), legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0), plot_bgcolor="rgba(0,0,0,0)")
+    fig.update_layout(height=height, margin=dict(l=10, r=10, t=50, b=10), legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0), plot_bgcolor="rgba(0,0,0,0)", separators=",.")
     return lock_axes(fig)
 
 
@@ -61,7 +61,7 @@ def build_naive(rows: list[dict]):
 def build_rejection(res: dict):
     """Erwartete Versuche der Rejection je Familie gegen n (logarithmische Achsen)."""
     fig = go.Figure()
-    for key in ("Schichtfolgen", "Dyck-Wörter", "Motzkin-Wörter", "Derangements"):
+    for key in ("Schichtfolgen", "Dyck-Wörter", "Motzkin-Wörter", "Fixpunktfreie Permutationen"):
         fig.add_trace(go.Scatter(x=[r["n"] for r in res["rows"]], y=[r[key] for r in res["rows"]], mode="lines+markers", name=key))
     fig.update_xaxes(title_text="n", type="log")
     fig.update_yaxes(title_text="erwartete Versuche je Objekt", type="log")

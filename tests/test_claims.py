@@ -65,9 +65,9 @@ def test_readme_experiment_3_rejection():
     assert [round(by[n]["Dyck-Wörter"], 1) for n in (10, 20, 30, 40, 60, 100, 200)] == [62.4, 167.5, 302.2, 461.0, 839.2, 1792.4, 5041.5]
     assert [round(by[n]["Dyck / (√π·n^1,5)"], 3) for n in (10, 200)] == [1.114, 1.006]
     assert [round(by[n]["Motzkin-Wörter"], 1) for n in (10, 20, 30, 40, 60, 100, 200)] == [27.0, 68.6, 121.3, 183.2, 330.0, 698.9, 1953.2]
-    assert all(round(r["Derangements"], 3) == 2.718 for r in res["rows"])
+    assert all(round(r["Fixpunktfreie Permutationen"], 3) == 2.718 for r in res["rows"])
     meas = {m["Familie"]: m for m in res["measured"]}
-    assert [round(meas[f]["gemessen"], 1) for f in ("Schichtfolgen", "Dyck-Wörter (Catalan)", "Motzkin-Wörter")] == [22.4, 165.8, 69.2] and round(meas["Derangements"]["gemessen"], 2) == 2.67
+    assert [round(meas[f]["gemessen"], 1) for f in ("Schichtfolgen", "Dyck-Wörter (Catalan)", "Motzkin-Wörter")] == [22.4, 165.8, 69.2] and round(meas["Fixpunktfreie Permutationen"]["gemessen"], 2) == 2.67
     assert [round(meas[f]["erwartet"], 1) for f in ("Schichtfolgen", "Dyck-Wörter (Catalan)", "Motzkin-Wörter")] == [21.8, 167.5, 68.6]
     assert all(m["Ziehungen"] == 400 for m in res["measured"])
 

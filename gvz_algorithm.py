@@ -572,7 +572,7 @@ def partition_text(rgs: tuple) -> str:
     return " ".join("{" + ",".join(map(str, b)) + "}" for b in blocks.values())
 
 
-# ----------------------------------------------------------------------------- Derangements (nur Rejection, Stück 6)
+# ----------------------------------------------------------------------------- fixpunktfreie Permutationen (nur Rejection, Stück 6)
 
 def derangements(n: int) -> int:
     d = [1, 0]

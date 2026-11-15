@@ -233,10 +233,10 @@ verdict(verdict_naive(naive))
 st.markdown("---")
 
 st.subheader("🔬 Experiment 3: Rejection kostet je Familie etwas anderes")
-st.caption(f"Erwartete Versuche bis zum ersten gültigen Objekt = Vorschläge durch Objekte, exakt gerechnet (Schichtfolgen 3ⁿ, Dyck-Wörter 4ⁿ, Motzkin-Wörter 3ⁿ Vorschläge; Derangements n! Permutationen). Darunter gezogen bei n = {C.EXP_REJECT_MEASURE_N}.")
+st.caption(f"Erwartete Versuche bis zum ersten gültigen Objekt = Vorschläge durch Objekte, exakt gerechnet (Schichtfolgen 3ⁿ, Dyck-Wörter 4ⁿ, Motzkin-Wörter 3ⁿ Vorschläge; fixpunktfreie Permutationen (Derangements) n! Vorschläge). Darunter gezogen bei n = {C.EXP_REJECT_MEASURE_N}.")
 rej = _rejection()
 st.plotly_chart(build_rejection(rej), width="stretch", key="rejection_chart")
-st.dataframe([{"n": r["n"], "Schichtfolgen": count_text(r["Schichtfolgen"]), "Dyck-Wörter": count_text(r["Dyck-Wörter"]), "Motzkin-Wörter": count_text(r["Motzkin-Wörter"]), "Derangements": de(r["Derangements"], 3),
+st.dataframe([{"n": r["n"], "Schichtfolgen": count_text(r["Schichtfolgen"]), "Dyck-Wörter": count_text(r["Dyck-Wörter"]), "Motzkin-Wörter": count_text(r["Motzkin-Wörter"]), "Fixpunktfreie Permutationen": de(r["Fixpunktfreie Permutationen"], 3),
                "Dyck / (√π·n^1,5)": de(r["Dyck / (√π·n^1,5)"], 4)} for r in rej["rows"]], hide_index=True, width="stretch")
 st.dataframe([{"Familie": r["Familie"], "n": r["n"], "Ziehungen": r["Ziehungen"], "Versuche gemessen": de(r["gemessen"], 2), "Versuche erwartet": de(r["erwartet"], 2)} for r in rej["measured"]], hide_index=True, width="stretch")
 verdict(verdict_rejection(rej))
