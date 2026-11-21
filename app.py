@@ -284,7 +284,7 @@ pn = q4.slider("Zielgröße n", C.PLAY_N_MIN, C.PLAY_N_MAX, C.PLAY_N_DEFAULT, ke
 play = _play(int(c1), int(c2), int(c3), int(pn))
 if play["kind"] == "root" and play["hist"]:
     st.plotly_chart(build_play(play), width="stretch", key="play_chart")
-    st.caption(f"Größen von {dot(C.PLAY_HIST_DRAWS)} Bäumen bei x = ρ (Abbruch bei Größe über {dot(C.PLAY_CAP)}) gegen c_m·ρᵐ/τ; der Schwanz ist schwer (P(N > m) ≈ 1/√(π·m) bei Catalan).")
+    st.caption(f"Größen von {dot(C.PLAY_HIST_DRAWS)} Bäumen bei x = ρ (Abbruch bei Größe über {dot(C.PLAY_CAP)}) gegen c_m·ρᵐ/τ; der Tail ist schwer (P(N > m) ≈ 1/√(π·m) bei Catalan).")
 verdict(verdict_play(play))
 
 st.markdown("---")
